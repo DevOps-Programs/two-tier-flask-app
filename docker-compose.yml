@@ -1,0 +1,29 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    environment:
+      MYSQL_HOST: mysql 
+      MYSQL_USER: root
+      MYSQL_PASSWORD: test@123
+      MYSQL_DB: KYC
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    command: --init-file /message.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: test@123
+      MYSQL_DATABASE: KYC
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./message.sql:/message.sql
+volumes:
+  mysql-data:
+
