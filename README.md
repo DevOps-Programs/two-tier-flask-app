@@ -60,6 +60,7 @@ Ensure you have Docker installed. Optionally, you can have Git for cloning the r
     		id INT AUTO_INCREMENT PRIMARY KEY,
     		message TEXT
 	);
+
         ```
 
 4. Interact with the app:
